@@ -4,6 +4,14 @@ import java.util.function.Consumer;
 
 public class Stack<Item> implements Iterable<Item>{
 
+    private Node top;
+    private int index;
+
+    private class Node
+    {
+        Item item;
+        Node next;
+    }
 
     public Stack(){}
 
@@ -16,7 +24,7 @@ public class Stack<Item> implements Iterable<Item>{
     }
 
     public boolean IsEmpty(){
-        return false;
+        return top == null;
     }
 
     public int size(){
