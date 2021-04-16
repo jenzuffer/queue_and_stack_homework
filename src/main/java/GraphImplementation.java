@@ -7,7 +7,9 @@ public class GraphImplementation implements Graph {
     private static final ArrayList<Integer> emptylist = new ArrayList<Integer>(0);
     private ArrayList<Integer>[] graph;
 
-    public GraphImplementation(){}
+    public GraphImplementation() {
+    }
+
     public GraphImplementation(int verticeCount) {
         graph = new ArrayList[verticeCount];
         edgecount = 0;
@@ -25,7 +27,7 @@ public class GraphImplementation implements Graph {
 
             int e = Integer.parseInt(line);
             System.out.println(line);
-            for (int i = 0; i < e; ++i){
+            for (int i = 0; i < e; ++i) {
                 line = br.readLine();
                 //System.out.println(line);
                 String[] vs = line.split(" ");
@@ -50,7 +52,7 @@ public class GraphImplementation implements Graph {
     public void addEdge(int vertice1, int vertice2) {
         System.out.println(vertice1);
         ArrayList<Integer> arr = graph[vertice1];
-        if (arr == null){
+        if (arr == null) {
             arr = new ArrayList<>();
             graph[vertice1] = arr;
         }
@@ -58,12 +60,14 @@ public class GraphImplementation implements Graph {
         ++edgecount;
     }
 
-    public Iterable<Integer> adj(int vertex) {
-        ArrayList<Integer> list = graph[vertex];
-        if (list == null) {
-            return emptylist;
+    public void adj(int vertex) {
+        for (int index = vertex; index < graph.length; index++) {
+            ArrayList<Integer> integers = graph[index];
+            if (integers == null) continue;
+            for (Integer integer : integers) {
+                System.out.println(integer + "adj");
+            }
         }
-        return list;
     }
 
 
