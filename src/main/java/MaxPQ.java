@@ -21,6 +21,19 @@ public class MaxPQ<Key extends Comparable<Key>> {
         swim(N);
     }
 
+    public Key delMin() {
+        Key minkey = pq[0];
+        for (int index = 0; index < pq.length -1; index++){
+            for (int jindex = index; jindex < pq.length; jindex++){
+                if (less2(index, jindex)){
+                    minkey = pq[jindex];
+                }
+            }
+        }
+
+        return minkey;
+    }
+
     public Key delMax() {
         Key max = pq[1];
         // Retrieve max key from top.
@@ -35,6 +48,10 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     private boolean less(int i, int j) {
         return pq[i].compareTo(pq[j]) < 0;
+    }
+
+    private boolean less2(int i, int j) {
+        return pq[i].compareTo(pq[j]) > 0;
     }
 
     private void exch(int i, int j) {
@@ -64,6 +81,6 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     public static void main(String[] args) {
         MaxPQ maxPQ = new MaxPQ(10);
-        
+
     }
 }
