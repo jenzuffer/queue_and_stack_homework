@@ -6,7 +6,7 @@ public class LazyPrimMst {
     private MaxPQ<Edge> pq;            // crossing (and ineligible) edge
 
     public LazyPrimMst(EdgeWeightedGraph G) {
-        pq = new MaxPQ<Edge>(10);
+        pq = new MaxPQ<Edge>(G.V());
         marked = new boolean[G.V()];
         mst = new QueueImpl<>();
         visit(G, 0);

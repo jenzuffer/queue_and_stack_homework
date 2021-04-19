@@ -22,7 +22,9 @@ public class Main {
             System.out.println(dequeue);
         }
                  */
-        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(10);
+        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(2);
+        Edge e = new EdgeImpl(0 , 1 ,1);
+        edgeWeightedGraph.addEdge(e);
         LazyPrimMst lazyPrimMst = new LazyPrimMst(edgeWeightedGraph);
         for (Edge edge : lazyPrimMst.edges()) {
             int either = edge.either();

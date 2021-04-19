@@ -46,9 +46,9 @@ public class EdgeWeightedGraph implements Edge {
 
     @Override
     public int other(int v) {
-        if (v == this.v) return e;
-        else if (v == e) return this.v;
-        return 0;
+            if (v == this.v) return e;
+            else if (v == e) return this.v;
+            return 0;
     }
 
     @Override
