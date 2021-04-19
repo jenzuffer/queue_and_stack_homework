@@ -1,4 +1,4 @@
-public class EdgeWeightedGraph {
+public class EdgeWeightedGraph implements Edge {
     private int V;
     // number of vertices
     private int E;
@@ -37,5 +37,31 @@ public class EdgeWeightedGraph {
         Bag<Edge> b = new Bag<Edge>();
         for (int v = 0; v < V; v++) for (Edge e : adj[v]) if (e.other(v) > v) b.add(e);
         return b;
+    }
+
+    @Override
+    public int either() {
+        return V;
+    }
+
+    @Override
+    public int other(int v) {
+        if (v == V) return E;
+        else if (v == E) return V;
+        return 0;
+    }
+
+    @Override
+    public float getWeight() {
+        return 0;
+    }
+
+    @Override
+    public int compareTo(Edge o) {
+        return 0;
+    }
+
+    public String toString() {
+        return String.format("%d-%d %.2f", V, E);
     }
 }
