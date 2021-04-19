@@ -2,7 +2,7 @@
 
 public class LazyPrimMst {
     private boolean[] marked;          // MST vertices
-    private QueueImpl<Edge> mst;           // MST edges
+    private QueueImpl<Edge> mst;         // MST edges
     private MaxPQ<Edge> pq;            // crossing (and ineligible) edge
 
     public LazyPrimMst(EdgeWeightedGraph G) {
@@ -36,4 +36,5 @@ public class LazyPrimMst {
     public Iterable<Edge> edges() {
         return mst;
     }
+
 }

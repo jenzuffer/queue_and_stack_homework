@@ -3,6 +3,7 @@ import java.util.Iterator;
 public class Main {
     public static void main(String[] args) {
         // Create a stack and push/pop strings as directed on StdIn.
+        /*
         Stack<Integer> s = new Stack<Integer>();
         for (int index = 0; index < 10; index++) {
             s.push(index);
@@ -19,6 +20,15 @@ public class Main {
         while (!s1.isEmpty()) {
             Integer dequeue = s1.dequeue();
             System.out.println(dequeue);
+        }
+                 */
+        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(10);
+        LazyPrimMst lazyPrimMst = new LazyPrimMst(edgeWeightedGraph);
+        for (Edge edge : lazyPrimMst.edges()) {
+            int either = edge.either();
+            int other = edge.other(0);
+
+            System.out.println(either + " either" + " " + other + " other");
         }
     }
 }
