@@ -7,8 +7,6 @@ public class QueueImpl<Item> implements Iterable<Item> {
     private Node last;
     private int nth;
 
-
-
     public boolean isEmpty() {
         return first == null;
     }
@@ -37,7 +35,24 @@ public class QueueImpl<Item> implements Iterable<Item> {
 
     @Override
     public Iterator<Item> iterator() {
-        return null;
+        return new ListIterator();
+    }
+
+    private class ListIterator implements Iterator<Item> {
+        private Node current = first;
+
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        public void remove() {
+        }
+
+        public Item next() {
+            Item item = current.item;
+            current = current.next;
+            return item;
+        }
     }
 
     @Override
@@ -56,7 +71,7 @@ public class QueueImpl<Item> implements Iterable<Item> {
     }
 
 
-    public boolean IsEmpty(){
+    public boolean IsEmpty() {
         return last == null;
     }
 }

@@ -2,7 +2,6 @@ public class MaxPQ<Key extends Comparable<Key>> {
     private Key[] pq;
     // heap-ordered complete binary tree
     private int N = 0;
-
     //    in pq[1..N] with pq[0] unused
     public MaxPQ(int maxN) {
         pq = (Key[]) new Comparable[maxN + 1];
@@ -23,9 +22,10 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     public Key delMin() {
         Key minkey = pq[0];
-        for (int index = 0; index < pq.length -1; index++){
-            for (int jindex = index; jindex < pq.length; jindex++){
-                if (less2(index, jindex)){
+
+        for (int index = 0; index < pq.length - 1; index++) {
+            for (int jindex = index; jindex < pq.length; jindex++) {
+                if (less2(index, jindex)) {
                     minkey = pq[jindex];
                 }
             }

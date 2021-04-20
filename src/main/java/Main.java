@@ -29,7 +29,6 @@ public class Main {
         for (Edge edge : lazyPrimMst.edges()) {
             int either = edge.either();
             int other = edge.other(0);
-
             System.out.println(either + " either" + " " + other + " other");
         }
     }
