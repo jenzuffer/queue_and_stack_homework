@@ -13,6 +13,8 @@ public class LazyPrimMst {
         this.marked = new boolean[G.V()];
         this.mst = new QueueImpl<>();
         visit(G, 0);
+
+        System.out.println("reached  while (!this.pq.isEmpty())");
         // assumes G is connected (see Exercise 4.3.22)
         while (!this.pq.isEmpty()) {
             Edge e = this.pq.delMin();
@@ -31,8 +33,11 @@ public class LazyPrimMst {
 
     private void visit(EdgeWeightedGraph G, int v) {
         marked[v] = true;
-        for (Edge e : G.adj(v))
+        for (Edge e : G.adj(v)) {
+
+            System.out.println("Edge: " + e.getWeight());
             if (!marked[e.other(v)]) pq.insert(e);
+        }
     }
 
     public Iterable<Edge> edges() {

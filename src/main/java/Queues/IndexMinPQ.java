@@ -23,11 +23,20 @@ class IndexMinPQ<Key extends Comparable<Key>> {
         return qp[k] != -1;
     }
 
+    public void insert(int k, Key key) {
+        N++;
+        qp[k] = N;
+        pq[N] = k;
+        keys[k] = key;
+        swim(N);
+    }
+
     public void insert(Key key) {
         qp[N] = N;
         pq[N] = N;
         keys[N] = key;
-        swim(N);
+        swim();
+        System.out.println("N value: " + N);
         N++;
     }
 
@@ -41,12 +50,30 @@ class IndexMinPQ<Key extends Comparable<Key>> {
         pq[j] = key;
     }
 
-    //side 316
+
     private void swim(int k) {
         while (k > 1 && less(k / 2, k)) {
             exch(k / 2, k);
             k = k / 2;
         }
+    }
+
+    //side 316
+    private void swim() {
+        int k = N;
+        while (k > 1 && less(k / 2, k)) {
+            exch(k / 2, k);
+            k = k / 2;
+        }
+    }
+
+    public int delMinEager() {
+        int indexOfMin = pq[1];
+        exch(1, N--);
+        sink(1);
+        keys[pq[N + 1]] = null;
+        qp[pq[N + 1]] = -1;
+        return indexOfMin;
     }
 
     public Key delMin() {
@@ -59,7 +86,7 @@ class IndexMinPQ<Key extends Comparable<Key>> {
     }
 
     private boolean less(int i, int j) {
-        System.out.println("int i: " + i + " int j: " + j);
+        System.out.println("int i: " + i);
         return keys[i].compareTo(keys[j]) < 0;
     }
 
@@ -72,5 +99,23 @@ class IndexMinPQ<Key extends Comparable<Key>> {
             exch(k, j);
             k = j;
         }
+    }
+
+    public int minIndex() {
+        return pq[1];
+    }
+
+    public void change(int k, Key key) {
+        keys[k] = key;
+        swim(qp[k]);
+        sink(qp[k]);
+    }
+
+    public void delete(int k) {
+        exch(k, N--);
+        swim(qp[k]);
+        sink(qp[k]);
+        keys[pq[N + 1]] = null;
+        qp[pq[N + 1]] = -1;
     }
 }

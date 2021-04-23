@@ -3,7 +3,7 @@ package custom;
 import Edges.Edge;
 import Edges.EdgeImpl;
 import Graphs.EdgeWeightedGraph;
-import Queues.LazyPrimMst;
+import Queues.EagerPrimMST;
 
 public class Main {
     public static void main(String[] args) {
@@ -55,8 +55,9 @@ public class Main {
         edgeWeightedGraph.addEdge(e11);
         edgeWeightedGraph.addEdge(e12);
 
-        LazyPrimMst lazyPrimMst = new LazyPrimMst(edgeWeightedGraph);
-        for (Edge edge : lazyPrimMst.edges()) {
+        //LazyPrimMst lazyPrimMst = new LazyPrimMst(edgeWeightedGraph);
+        EagerPrimMST eagerPrimMST = new EagerPrimMST(edgeWeightedGraph);
+        for (Edge edge : eagerPrimMST.edges()) {
             int either = edge.either();
             int other = edge.other(0);
             System.out.println(either + " either" + " " + other + " other");
