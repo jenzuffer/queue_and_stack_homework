@@ -19,11 +19,11 @@ class IndexMinPQ<Key extends Comparable<Key>> {
         return qp[k] != -1;
     }
 
-    public void insert(int k, Key key) {
+    public void insert(Key key) {
         N++;
-        qp[k] = N;
-        pq[N] = k;
-        keys[k] = key;
+        qp[N] = N;
+        pq[N] = N;
+        keys[N++] = key;
         swim(N);
     }
 
@@ -55,6 +55,8 @@ class IndexMinPQ<Key extends Comparable<Key>> {
     }
 
     private boolean less(int i, int j) {
+        System.out.println(keys.length);
+        System.out.println(i);
         return keys[i].compareTo(keys[j]) < 0;
     }
 
