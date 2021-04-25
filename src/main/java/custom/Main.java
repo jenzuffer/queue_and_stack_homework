@@ -1,5 +1,6 @@
 package custom;
 
+import Algorithm.KruskalMST;
 import Algorithm.LazyPrimMST2;
 import Algorithm.LazyPrimMst;
 import Edges.Edge;
@@ -89,6 +90,7 @@ public class Main {
         edgeWeightedGraph.addEdge(e11);
         edgeWeightedGraph.addEdge(e12);
 
+        /*
         //LazyPrimMst lazyPrimMst = new LazyPrimMst(edgeWeightedGraph);
         //EagerPrimMST eagerPrimMST = new EagerPrimMST(edgeWeightedGraph);
 
@@ -97,5 +99,11 @@ public class Main {
             StdOut.println(edge);
         }
         StdOut.println(lazyPrimMST2.weight());
+        */
+        KruskalMST kruskalMST = new KruskalMST(edgeWeightedGraph);
+        for (EdgeImpl2 edge : kruskalMST.edges()){
+            StdOut.println(edge);
+        }
+        StdOut.println(kruskalMST.weight());
     }
 }
