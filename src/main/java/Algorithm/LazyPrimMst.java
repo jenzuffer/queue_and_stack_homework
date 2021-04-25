@@ -1,7 +1,9 @@
-package Queues;
+package Algorithm;
 
 import Edges.Edge;
 import Graphs.EdgeWeightedGraph;
+import Queues.IndexMinPQ;
+import Queues.QueueImpl;
 
 public class LazyPrimMst {
     private boolean[] marked;          // MST vertices

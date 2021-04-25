@@ -1,6 +1,6 @@
 package Queues;
 
-class IndexMinPQ<Key extends Comparable<Key>> {
+public class IndexMinPQ<Key extends Comparable<Key>> {
     private int N;
     private int[] pq;
     private int[] qp;

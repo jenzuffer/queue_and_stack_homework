@@ -17,7 +17,7 @@ public class Stack<Item> implements Iterable<Item> {
     public Stack() {
     }
 
-    void push(Item item) {
+    public void push(Item item) {
         Node oldfirst = top;
         top = new Node();
         top.item = item;

@@ -1,7 +1,8 @@
-package Queues;
+package Algorithm;
 
 import Edges.Edge;
 import Graphs.EdgeWeightedGraph;
+import Queues.IndexMinPQ;
 import custom.Bag;
 
 public class EagerPrimMST {

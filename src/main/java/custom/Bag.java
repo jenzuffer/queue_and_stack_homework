@@ -41,4 +41,14 @@ public class Bag<Item> implements Iterable<Item> {
             return item;
         }
     }
+
+    public int size() {
+        int counter = 0;
+        Iterator iterator = iterator();
+        while (iterator.hasNext()) {
+            counter++;
+            iterator.next();
+        }
+        return counter;
+    }
 }
