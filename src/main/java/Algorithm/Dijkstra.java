@@ -1,7 +1,10 @@
 package Algorithm;
 
+import Edges.DirectedEdge;
 import Edges.EdgeImpl2;
+import Edges.EdgeWeightedDigraph;
 import Graphs.EdgeWeightedGraph2;
+import Queues.IndexMinPQ;
 
 import java.util.ArrayList;
 
@@ -9,23 +12,36 @@ import static java.lang.Double.NaN;
 
 public class Dijkstra {
 
-    private ArrayList verticeQ[];
+    private IndexMinPQ Q;
     private double[] distTo;
+    private int[] prev;
 
 
-    public Dijkstra(EdgeWeightedGraph2 graph, int source) {
+    public Dijkstra(EdgeWeightedDigraph graph, int source) {
         int v = graph.V();
-        verticeQ = new ArrayList[v];
-        int iterator = 0;
-        for (EdgeImpl2 graphs : graph.adj(source)) {
-            verticeQ[iterator].add(Double.POSITIVE_INFINITY);
-            verticeQ[iterator].add(NaN);
-            iterator++;
-        }
-        verticeQ[source].add(0);
-        verticeQ[source].add(-1);
+        distTo = new double[v];
+        prev = new int[
+                v];
 
-        while (verticeQ.length > 0){
+        int iterator = 0;
+        for (DirectedEdge graphs : graph.edges()) {
+            distTo[iterator] = Double.POSITIVE_INFINITY;
+            prev[iterator] = -1;
+            Q.insert(graphs.from());
+            iterator++;
+
+        }
+        distTo[source] = 0;
+        prev[source] = -1;
+
+        while (!Q.isEmpty()) {
+            int i = Q.delMinEager();
+            Q.delete(i);
+            for (var vert : graph.adj(i)
+            ) {
+
+            }
+
 
         }
     }

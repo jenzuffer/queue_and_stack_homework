@@ -1,13 +1,10 @@
 package custom;
 
-import Algorithm.KruskalMST;
-import Algorithm.LazyPrimMST2;
-import Algorithm.LazyPrimMst;
+import Algorithm.*;
 import Edges.Edge;
 import Edges.EdgeImpl;
 import Edges.EdgeImpl2;
 import Graphs.EdgeWeightedGraph;
-import Algorithm.EagerPrimMST;
 import Graphs.EdgeWeightedGraph2;
 
 public class Main {
@@ -100,10 +97,11 @@ public class Main {
         }
         StdOut.println(lazyPrimMST2.weight());
         */
-        KruskalMST kruskalMST = new KruskalMST(edgeWeightedGraph);
+      /*  KruskalMST kruskalMST = new KruskalMST(edgeWeightedGraph);
         for (EdgeImpl2 edge : kruskalMST.edges()){
             StdOut.println(edge);
         }
-        StdOut.println(kruskalMST.weight());
+       StdOut.println(kruskalMST.weight());*/
+        Dijkstra k = new Dijkstra(edgeWeightedGraph , 0);
     }
 }
