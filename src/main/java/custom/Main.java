@@ -102,20 +102,23 @@ public class Main {
         }
        StdOut.println(kruskalMST.weight());*/
         //Dijkstra k = new Dijkstra(ed , 0);
-        EdgeWeightedDigraph edgeWeightedGraph = new EdgeWeightedDigraph(7);
+        var edgeWeightedGraph = new EdgeWeightedDigraph(8);
 
-        DirectedEdge e = new DirectedEdge(0, 1, 1);
-        DirectedEdge e2 = new DirectedEdge(1, 2, 2);
-        DirectedEdge e3 = new DirectedEdge(1, 5, 3);
-        DirectedEdge e4 = new DirectedEdge(2, 5, 4);
-        DirectedEdge e5 = new DirectedEdge(1, 4, 5);
-        DirectedEdge e6 = new DirectedEdge(4, 5, 6);
-        DirectedEdge e7 = new DirectedEdge(5, 6, 7);
-        DirectedEdge e8 = new DirectedEdge(4, 6, 8);
-        DirectedEdge e9 = new DirectedEdge(3, 6, 9);
-        DirectedEdge e10 = new DirectedEdge(3, 4, 10);
-        DirectedEdge e11 = new DirectedEdge(0, 4, 11);
-        DirectedEdge e12 = new DirectedEdge(0, 3, 12);
+        DirectedEdge e = new DirectedEdge(0, 1, 2);
+        DirectedEdge e2 = new DirectedEdge(1, 2, 1);
+        DirectedEdge e3 = new DirectedEdge(0, 3, 3);
+        DirectedEdge e4 = new DirectedEdge(0, 4, 8);
+        DirectedEdge e5 = new DirectedEdge(2, 4, 1);
+        DirectedEdge e6 = new DirectedEdge(2, 5, 1);
+        DirectedEdge e7 = new DirectedEdge(3, 4, 1);
+        DirectedEdge e8 = new DirectedEdge(4, 5, 3);
+        DirectedEdge e9 = new DirectedEdge(3, 6, 5);
+        DirectedEdge e10 = new DirectedEdge(4, 6, 2);
+        DirectedEdge e11 = new DirectedEdge(7, 4, 2);
+        DirectedEdge e12 = new DirectedEdge(5, 7, 1);
+        DirectedEdge e13 = new DirectedEdge(6, 7, 1);
+        DirectedEdge e14 = new DirectedEdge(1, 4, 2);
+
 
         edgeWeightedGraph.addEdge(e);
         edgeWeightedGraph.addEdge(e2);
@@ -129,11 +132,13 @@ public class Main {
         edgeWeightedGraph.addEdge(e10);
         edgeWeightedGraph.addEdge(e11);
         edgeWeightedGraph.addEdge(e12);
+        edgeWeightedGraph.addEdge(e14);
+        edgeWeightedGraph.addEdge(e13);
 
 
         EdgeWeightedDigraph factory = new EdgeWeightedDigraph(edgeWeightedGraph);
-        Dijkstra2 dijkstra2= new Dijkstra2(factory, 0);
-        String s = dijkstra2.toString();
-        System.out.println(s);
+        Dijkstra2 dijkstra2 = new Dijkstra2(factory, 0);
+
+        System.out.println(dijkstra2);
     }
 }

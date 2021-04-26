@@ -6,38 +6,46 @@ import Queues.MinPQ;
 
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.PriorityQueue;
 
 public class Dijkstra2 {
     int[] pathArray;
-    float[] bestWeight;
-    private MinPQ minPQ;
+    double[] bestWeight;
+    private PriorityQueue pq;
 
     public Dijkstra2(EdgeWeightedDigraph g, int startNode) {
         pathArray = new int[g.V()];
         for (int i = 0; i < pathArray.length; i++) {
             pathArray[i] = -1;
         }
-        bestWeight = new float[g.V()];
+        bestWeight = new double[g.V()];
         for (int i = 0; i < bestWeight.length; i++) {
-            bestWeight[i] = Float.MAX_VALUE;
+            bestWeight[i] = Double.MAX_VALUE;
         }
         int curNode = startNode;
+        pathArray[startNode] = -1;
+        bestWeight[startNode] = 0;
 
-        minPQ = new MinPQ();
+        pq = new PriorityQueue();
 
+        pq.add(startNode);
 
-
-        while (curNode != -1) {
-            float currentCost = bestWeight[curNode];
+        while (!pq.isEmpty()) {
+            pq.remove(curNode);
+            double currentCost = bestWeight[curNode];
             for (DirectedEdge e : g.adj(curNode)) {
-                float cost = (float) (currentCost + e.weight());
+                double cost =  currentCost + e.weight();
                 int toNode = e.to();
                 if (cost < bestWeight[toNode]) {
                     bestWeight[toNode] = cost;
+                    pathArray[toNode]= curNode;
                 }
-                minPQ.insert(toNode);
+                if(!pq.contains(toNode))
+                    pq.add(toNode);
             }
-            //curNode = minPQ.delMin();
+            curNode = (int) pq.poll();
+
+
         }
     }
 
