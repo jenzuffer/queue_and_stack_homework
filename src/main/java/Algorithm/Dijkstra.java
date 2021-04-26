@@ -20,8 +20,7 @@ public class Dijkstra {
     public Dijkstra(EdgeWeightedDigraph graph, int source) {
         int v = graph.V();
         distTo = new double[v];
-        prev = new int[
-                v];
+        prev = new int[v];
 
         int iterator = 0;
         for (DirectedEdge graphs : graph.edges()) {
@@ -37,8 +36,7 @@ public class Dijkstra {
         while (!Q.isEmpty()) {
             int i = Q.delMinEager();
             Q.delete(i);
-            for (var vert : graph.adj(i)
-            ) {
+            for (var vert : graph.adj(i)) {
 
             }
 

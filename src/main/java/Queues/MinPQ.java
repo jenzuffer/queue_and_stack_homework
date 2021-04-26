@@ -138,7 +138,6 @@ public class MinPQ<Key> implements Iterable<Key> {
         return min;
     }
 
-
     /***************************************************************************
      * Helper functions to restore the heap invariant.
      ***************************************************************************/
@@ -240,14 +239,14 @@ public class MinPQ<Key> implements Iterable<Key> {
     }
 
     /**
-    public static void main(String[] args) {
-    MinPQ<String> pq = new MinPQ<String>();
-    while (!StdIn.isEmpty()) {
-    String item = StdIn.readString();
-    if (!item.equals("-")) pq.insert(item);
-    else if (!pq.isEmpty()) StdOut.print(pq.delMin() + " ");
-    }
-    StdOut.println("(" + pq.size() + " left on pq)");
-    }
+     public static void main(String[] args) {
+     MinPQ<String> pq = new MinPQ<String>();
+     while (!StdIn.isEmpty()) {
+     String item = StdIn.readString();
+     if (!item.equals("-")) pq.insert(item);
+     else if (!pq.isEmpty()) StdOut.print(pq.delMin() + " ");
+     }
+     StdOut.println("(" + pq.size() + " left on pq)");
+     }
      */
 }
