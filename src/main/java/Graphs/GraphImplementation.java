@@ -1,5 +1,7 @@
 package Graphs;
 
+import Edges.Edge;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -62,7 +64,7 @@ public class GraphImplementation implements Graph {
         ++edgecount;
     }
 
-    public void adj(int vertex) {
+    public Iterable adj(int vertex) {
         for (int index = vertex; index < graph.length; index++) {
             ArrayList<Integer> integers = graph[index];
             if (integers == null) continue;
@@ -70,6 +72,12 @@ public class GraphImplementation implements Graph {
                 System.out.println(integer + "adj");
             }
         }
+        return null;
+    }
+
+    @Override
+    public Iterable<Edge> edges() {
+        return null;
     }
 
 

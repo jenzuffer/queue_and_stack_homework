@@ -1,10 +1,12 @@
 package Graphs;
 
+import Edges.Edge;
+
 public interface Graph {
 
     int getV();
     int getE();
-    void addEdge(int vertex1, int vertex2);
-    void adj(int vertex);
+    Iterable<Edge> adj(int v);
+    Iterable<Edge> edges();
 
 }

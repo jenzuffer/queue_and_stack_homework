@@ -135,16 +135,18 @@ public class Main {
         edgeWeightedGraph.addEdge(e12);
         edgeWeightedGraph.addEdge(e14);
         edgeWeightedGraph.addEdge(e13);
-
-
+/*
         EdgeWeightedDigraph factory = new EdgeWeightedDigraph(edgeWeightedGraph);
         Dijkstra2 dijkstra2 = new Dijkstra2(factory, 0);
 
         System.out.println(dijkstra2);
+*/
 
         Heuristicclass heuristicclass = new Heuristicclass();
         Graph graph = new GraphImplementation();
-        Aproblem aproblem = new Aproblem(graph, 0, 5, heuristicclass);
+
+        AstarProblem aproblem = new Aproblem(graph, 0, 5, heuristicclass);
+
         AStarAlgorithm aStarAlgorithm = new AStarAlgorithm(aproblem);
 
     }

@@ -28,13 +28,13 @@ public class EagerPrimMST {
         // Add v to tree; update data structures.
         marked[v] = true;
         for (Edge e : G.adj(v)) {
-            int w = e.other(v);
+            int w = e.to(v);
             if (marked[w])
                 continue;     // v-w is ineligible.
-            if (e.getWeight() < distTo[w]) {
+            if (e.Weight() < distTo[w]) {
                 // Edge e is new best connection from tree to w.
                 edgeTo[w] = e;
-                distTo[w] = e.getWeight();
+                distTo[w] = e.Weight();
                 if (pq.contains(w)) pq.change(w, distTo[w]);
                 else pq.insert(w, distTo[w]);
             }

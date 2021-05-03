@@ -14,26 +14,26 @@ public class EdgeImpl implements Edge {
     }
 
     @Override
-    public int either() {
+    public int from() {
         return v;
     }
 
     @Override
-    public int other(int v) {
+    public int to(int v) {
         if (v == this.v) return this.e;
         else if (v == this.e) return this.v;
         return 0;
     }
 
     @Override
-    public float getWeight() {
+    public float Weight() {
         return w;
     }
 
     @Override
     public int compareTo(Edge o) {
-        if (this.getWeight() < o.getWeight()) return -1;
-        else if (this.getWeight() > o.getWeight()) return +1;
+        if (this.Weight() < o.Weight()) return -1;
+        else if (this.Weight() > o.Weight()) return +1;
         else return 0;
     }
 }

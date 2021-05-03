@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class TestGraph {
     public static void main(String[] args) {
-        try {
+     /*   try {
             Graph graph = new GraphImplementation("E:\\software-udvikling-anden-semester\\queue_and_stack_homework\\graph1.txt");
             graph.adj(0);
             Graph graph1 = new GraphImplementation(10);
@@ -18,6 +18,6 @@ public class TestGraph {
             graph.adj(0);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }

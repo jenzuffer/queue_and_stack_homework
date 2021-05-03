@@ -21,7 +21,7 @@ public class LazyPrimMst {
         while (!this.pq.isEmpty()) {
             Edge e = this.pq.delMin();
             // Get lowest-weight
-            int v = e.either(), w = e.other(v);
+            int v = e.from(), w = e.to(v);
             //    edge from pq.
             if (this.marked[v] && this.marked[w]) continue;
             // Skip if ineligible.
@@ -37,8 +37,8 @@ public class LazyPrimMst {
         marked[v] = true;
         for (Edge e : G.adj(v)) {
 
-            System.out.println("Edge: " + e.getWeight());
-            if (!marked[e.other(v)]) pq.insert(e);
+            System.out.println("Edge: " + e.Weight());
+            if (!marked[e.to(v)]) pq.insert(e);
         }
     }
 

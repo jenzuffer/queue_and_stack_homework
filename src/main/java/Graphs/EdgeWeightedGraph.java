@@ -28,7 +28,7 @@ public class EdgeWeightedGraph implements Edge {
     }
 
     public void addEdge(Edge e) {
-        int v = e.either(), w = e.other(v);
+        int v = e.from(), w = e.to(v);
         adj[v].add(e);
         adj[w].add(e);
         this.e++;
@@ -40,24 +40,24 @@ public class EdgeWeightedGraph implements Edge {
 
     public Iterable<Edge> edges() {
         Bag<Edge> b = new Bag<Edge>();
-        for (int v = 0; v < this.v; v++) for (Edge e : adj[v]) if (e.other(v) > v) b.add(e);
+        for (int v = 0; v < this.v; v++) for (Edge e : adj[v]) if (e.to(v) > v) b.add(e);
         return b;
     }
 
     @Override
-    public int either() {
+    public int from() {
         return v;
     }
 
     @Override
-    public int other(int v) {
+    public int to(int v) {
             if (v == this.v) return e;
             else if (v == e) return this.v;
             return 0;
     }
 
     @Override
-    public float getWeight() {
+    public float Weight() {
         return 0;
     }
 
