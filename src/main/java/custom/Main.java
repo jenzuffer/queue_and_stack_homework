@@ -4,6 +4,8 @@ import Algorithm.*;
 import Edges.*;
 import Graphs.EdgeWeightedGraph;
 import Graphs.EdgeWeightedGraph2;
+import Graphs.Graph;
+import Graphs.GraphImplementation;
 
 public class Main {
     public static void main(String[] args) {
@@ -119,7 +121,6 @@ public class Main {
         DirectedEdge e13 = new DirectedEdge(6, 7, 1);
         DirectedEdge e14 = new DirectedEdge(1, 4, 2);
 
-
         edgeWeightedGraph.addEdge(e);
         edgeWeightedGraph.addEdge(e2);
         edgeWeightedGraph.addEdge(e3);
@@ -140,5 +141,11 @@ public class Main {
         Dijkstra2 dijkstra2 = new Dijkstra2(factory, 0);
 
         System.out.println(dijkstra2);
+
+        Heuristicclass heuristicclass = new Heuristicclass();
+        Graph graph = new GraphImplementation();
+        Aproblem aproblem = new Aproblem(graph, 0, 5, heuristicclass);
+        AStarAlgorithm aStarAlgorithm = new AStarAlgorithm(aproblem);
+
     }
 }
